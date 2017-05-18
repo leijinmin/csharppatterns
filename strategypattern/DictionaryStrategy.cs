@@ -14,24 +14,24 @@ namespace StrategyPattern
         }
         public override string Sort()
         {
-            return convertirATableau().Sort();
+            return convertToArray().Sort();
         }
         public override string ShowAll()
         {
-            return convertirATableau().ShowAll();
+            return convertToArray().ShowAll();
         }
 
         public override string SearchByName(string champ)
         {
-            return convertirATableau().SearchByName(champ);
+            return convertToArray().SearchByName(champ);
                    
         }
         public override string SearchByEmail(string champ)
         {
-            return convertirATableau().SearchByEmail(champ);
+            return convertToArray().SearchByEmail(champ);
         }
 
-        private NameEmail[] convertirATableau()
+        private NameEmail[] convertToArray()
         {
             return hash.Select(x => new NameEmail(x.Key, x.Value)).ToArray();                            
         }
