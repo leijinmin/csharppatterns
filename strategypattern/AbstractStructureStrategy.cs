@@ -2,15 +2,15 @@
 {
     abstract public class AbstractStructureStrategy
     {
-        abstract public void Add(string nom, string courriel);
+        abstract public void Add(string name, string email);
         abstract public string Sort();
         abstract public string ShowAll();
-        abstract public string SearchByName(string champ);
-        abstract public string SearchByEmail(string champ);
+        abstract public string SearchByName(string field);
+        abstract public string SearchByEmail(string field);
         abstract public bool IsEmpty();
-        public bool Contains(string nom, string courriel)
+        public bool Contains(string name, string email)
         {
-            return SearchByName(nom) != "" || SearchByEmail(courriel) != "";
+            return SearchByName(name) != "" || SearchByEmail(email) != "";
         }
 }
 }
