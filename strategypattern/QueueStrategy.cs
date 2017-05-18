@@ -10,36 +10,15 @@ namespace StrategyPattern
         {
             queue.Enqueue(new NameEmail(nom, courriel));
         }
-        public override string Sort()
-        {
-            return convertToArray().Sort();
-        }
-        public override string ShowAll()
-        {
-            return convertToArray().ShowAll();
-        }
-        public override string SearchByName(string field)
-        {
-            return convertToArray().SearchByName(field);
-        }
-        public override string SearchByEmail(string field)
-        {
-
-            return convertToArray().SearchByEmail(field);
-        }
         /// <summary>
         /// Convert the structure to Array
         /// </summary>
         /// <returns>The array</returns>
-        private NameEmail[] convertToArray()
+        protected override NameEmail[] convertToArray()
         {
             NameEmail[] nameEmails = new NameEmail[queue.Count];
             queue.CopyTo(nameEmails, 0);
-            return nameEmails;
-        }
-        public override bool IsEmpty()
-        {
-            return queue.Count == 0;
+            return nameEmails; 
         }
     }
 }

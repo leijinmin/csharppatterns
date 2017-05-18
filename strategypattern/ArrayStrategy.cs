@@ -29,32 +29,19 @@ namespace StrategyPattern
             }
             index += 1;
         }
-        public override string Sort()
-        {
-           return changeArrayDimension().Sort();
-       }
-        public override string ShowAll()
-        {
-            return changeArrayDimension().ShowAll();
-           
-        }
         public override string SearchByName(string field)
         {
-            return index == 0 ? "" : changeArrayDimension().SearchByName(field);
+            return index == 0 ? "" : convertToArray().SearchByName(field);
         
         }
         public override string SearchByEmail(string field)
         {
-            return index == 0 ? "" : changeArrayDimension().SearchByEmail(field);
+            return index == 0 ? "" : convertToArray().SearchByEmail(field);
         }
-        private NameEmail[] changeArrayDimension()
+        protected override NameEmail[] convertToArray()
         {
             return Enumerable.Range(0, index)
                              .Select(i => new NameEmail(array[i, 0], array[i, 1])).ToArray();
-        }
-        public override bool IsEmpty()
-        {
-            return index == 0;
         }
 
     }
