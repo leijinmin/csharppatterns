@@ -20,7 +20,8 @@ For this task, I feel it is natural to use the strategy pattern, and the solutio
 # Outline
 1.  The strategy pattern prevents the mass of the code which checks the structrue selected for each function.
 
- According to the above **Screenshot**, I use one single function **getStrategy** to get the concrete structure strategy in corresondence with the radio button selectetd. When the **Show** button is clicked, for instance, **getStrategy().ShowAll()** takes care of the display of the data no matter what structure is selected.
+ According to the above **Screenshot**, I use one single function **getStrategy** to get the concrete structure strategy in corresondence with the radio button selectetd. When the **Show** button is clicked, for instance, one line of code **getStrategy().ShowAll()** in the even handling function **showBtn_Click** can take care of the display of the data. What class and method are called is behind the scene. 
+ 
 ```
         private AbstractStructureStrategy arrayStrategy = new ArrayStrategy();
         private AbstractStructureStrategy queueStrategy = new QueueStrategy();
