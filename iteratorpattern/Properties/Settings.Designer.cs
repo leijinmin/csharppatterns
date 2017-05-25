@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IteratorPattern.Properties {
+namespace iteratorpattern.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

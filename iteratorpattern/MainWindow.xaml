@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IteratorPattern"
         mc:Ignorable="d"
-        Title="StrategyPattern" Height="350" Width="625">
-
+        Title="MainWindow" Height="350" Width="625">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Padding" Value="10,2,10,2" />
@@ -52,8 +51,8 @@
                 <RadioButton GroupName="structureRd" Content="Hash table" IsChecked="False" Margin="5,10" x:Name="hashRd"/>
             </StackPanel>
             <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Column="1" VerticalAlignment="Top" Margin="5,10,5,5">
-                <TextBlock TextWrapping="Wrap" Width="380" Height="auto" MinHeight="155" Margin="5,10" x:Name="showTB">  
-            
+                <TextBlock TextWrapping="Wrap" Width="380" Height="auto" MinHeight="155" Margin="5,10" x:Name="showTB">
+
                 </TextBlock>
             </ScrollViewer>
         </Grid>

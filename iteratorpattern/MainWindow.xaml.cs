@@ -1,9 +1,17 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Text.RegularExpressions;
-
 
 namespace IteratorPattern
 {
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
         private AbstractStructureStrategy arrayStrategy = new ArrayStrategy();
@@ -16,10 +24,10 @@ namespace IteratorPattern
             InitializeComponent();
             changeButtonStatus(true);
         }
-       /// <summary>
-       /// Active or disactive the buttons
-       /// </summary>
-       /// <param name="isEmpty">flag indicating whether the structure is empty or not</param>
+        /// <summary>
+        /// Active or disactive the buttons
+        /// </summary>
+        /// <param name="isEmpty">flag indicating whether the structure is empty or not</param>
         private void changeButtonStatus(bool isEmpty)
         {
             if (isEmpty)
@@ -57,17 +65,18 @@ namespace IteratorPattern
             }
             else
             {
-                return this.hashStrategy ;
+                return this.hashStrategy;
             }
         }
-             
+
         private void ajouterBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (this.nameTB.Text.Trim() == "" || this.emailTB.Text.Trim() == "") {
+            if (this.nameTB.Text.Trim() == "" || this.emailTB.Text.Trim() == "")
+            {
                 MessageBox.Show("The name or e-mail is empty!");
                 return;
             }
-            if (getStrategy().Contains(this.nameTB.Text.Trim(),this.emailTB.Text.Trim()))
+            if (getStrategy().Contains(this.nameTB.Text.Trim(), this.emailTB.Text.Trim()))
             {
                 MessageBox.Show("The name or e-mail already exists!");
                 return;
@@ -78,7 +87,7 @@ namespace IteratorPattern
                 return;
             }
 
-            AbstractStructureStrategy strategy = getStrategy();           
+            AbstractStructureStrategy strategy = getStrategy();
             strategy.Add(this.nameTB.Text.Trim(), this.emailTB.Text.Trim());
             changeButtonStatus(false);
         }
@@ -92,7 +101,7 @@ namespace IteratorPattern
 
         private void searchByNameBtn_Click(object sender, RoutedEventArgs e)
         {
-           this.showTB.Text = getStrategy().SearchByName(this.nameTB.Text.Trim());
+            this.showTB.Text = getStrategy().SearchByName(this.nameTB.Text.Trim());
         }
 
         private void showBtn_Click(object sender, RoutedEventArgs e)
