@@ -38,7 +38,9 @@ The students are given an interface **IJeuDeDés** with two operations as shown 
 # Methods
 1. Template method pattern
 
-I list this pattern here as I feel that almost all object-oriented programs apply this pattern whether the programmer is aware of this or not. Even though this project is not a perfect example of this pattern, the class **Dé**(Dice) has included all the logic required for this project. The derived classes of **Dé** are **DéSixCotés**(SixFaceDice) and **DéDouzeCotés**(TwelveFaceDice) which do not implement supplementary operations except setting the initial properties. I make **Dé** abstract as I do not expect that it is intialized directly. Instead, I only hope that the derived classes **DéSixCotés** and **DéDouzeCotés** are initialized by applying the pattern **singleton**.
+I list this pattern here as I feel that almost all object-oriented programs apply this pattern whether the programmer is aware of this or not. Even though this project is not a perfect example of this pattern, the class **Dé**(Dice) has included all the logic required for this project. The derived classes of **Dé** are **DéSixCotés**(SixFaceDice) and **DéDouzeCotés**(TwelveFaceDice) which do not implement supplementary operations except setting the initial properties. I make **Dé** abstract as I do not expect that it is intialized directly. Instead, I only hope that the derived classes **DéSixCotés** and **DéDouzeCotés** are initialized through the pattern **singleton**.
+
+2. Singleton pattern
 
 
 
