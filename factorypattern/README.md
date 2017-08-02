@@ -38,4 +38,5 @@ The students are given an interface **IJeuDeDés** with two operations as shown 
 # Methods
 1  Template method pattern
 
-I feel that almost all projects apply this pattern. 
+I list all this pattern here as I feel that almost all object-oriented apply this pattern whether the programmer is aware of this or not. 
+
