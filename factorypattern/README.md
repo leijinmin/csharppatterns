@@ -14,3 +14,28 @@ The students are given an interface **IJeuDeDés** with two operations as shown 
 
 # UML
 
+# Design patterns addressed
+
+1. [Template method pattern](https://en.wikipedia.org/wiki/Template_method_pattern)
+> In software engineering, the template method pattern is a behavioral design pattern that defines the program skeleton of an algorithm in an operation, deferring some steps to subclasses. It lets one redefine certain steps of an algorithm without changing the algorithm's structure.
+
+![UML](http://www.dofactory.com/images/diagrams/net/template.gif)
+
+2. [Singleton pattern](http://csharpindepth.com/Articles/General/Singleton.aspx)
+> Essentially, a singleton is a class which only allows a single instance of itself to be created, and usually gives simple access to that instance. Most commonly, singletons don't allow any parameters to be specified when creating the instance - as otherwise a second request for an instance but with a different parameter could be problematic! (If the same instance should be accessed for all requests with the same parameter, the factory pattern is more appropriate.)
+
+![UML](http://www.oodesign.com/images/design_patterns/creational/singleton_implementation_-_uml_class_diagram.gif)
+
+3. [Factory method pattern](http://www.oodesign.com/factory-pattern.html)
+> Creates objects without exposing the instantiation logic to the client.
+> Refers to the newly created object through a common interface
+
+![UML](http://www.oodesign.com/images/stories/factory%20implementation.gif)
+
+4. [Extension methods](https://en.wikipedia.org/wiki/Extension_method) --- not a design pattern but sometimes similar to the decorator pattern in the effect
+> Next to extension methods allowing code written by others to be extended as described below, extension methods enable patterns that are useful in their own right as well. The predominant reason why extension methods were introduced was Language Integrated Query (LINQ). Compiler support for extension methods allows deep integration of LINQ with old code just the same as with new code, as well as support for query syntax which for the moment is unique to the primary Microsoft .NET languages.
+
+# Methods
+1  Template method pattern
+
+I feel that almost all projects apply this pattern. 
