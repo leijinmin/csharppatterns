@@ -17,6 +17,5 @@ namespace StrategyPattern
         {
             return hash.Select(x => new NameEmail(x.Key, x.Value)).ToArray();                            
         }
-
     }
 }

@@ -29,5 +29,9 @@ namespace StrategyPattern
             IEnumerable<NameEmail> resultat = nameEmails.OrderBy(x => x.Name);
             return string.Join("", resultat.Select(x => string.Format("Name: {0}\tEmail: {1}\n", x.Name, x.Email)));
         }
+        public static void Sauvegarder(string structureName)
+        {
+            
+        }
     }
 }

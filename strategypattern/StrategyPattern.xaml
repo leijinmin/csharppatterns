@@ -45,11 +45,11 @@
                 <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="5*" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="5,10" RadioButton.Checked="bouton_Checked">
-                <RadioButton GroupName="structureRd" Content="Array" IsChecked="True" Margin="5,10" x:Name="arrayRd"/>
-                <RadioButton GroupName="structureRd" Content="Stack" IsChecked="False" Margin="5,10" x:Name="stackRd" />
-                <RadioButton GroupName="structureRd" Content="Queue" IsChecked="False" Margin="5,10" x:Name="queueRd" />
-                <RadioButton GroupName="structureRd" Content="Hash table" IsChecked="False" Margin="5,10" x:Name="hashRd"/>
+            <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="5,10">
+                <RadioButton GroupName="structureRd" Content="Array" IsChecked="True" Margin="5,10" x:Name="arrayRd" Click="radioButton_Click"/>
+                <RadioButton GroupName="structureRd" Content="Stack" IsChecked="False" Margin="5,10" x:Name="stackRd"  Click="radioButton_Click"/>
+                <RadioButton GroupName="structureRd" Content="Queue" IsChecked="False" Margin="5,10" x:Name="queueRd"  Click="radioButton_Click"/>
+                <RadioButton GroupName="structureRd" Content="Hash table" IsChecked="False" Margin="5,10" x:Name="hashRd"  Click="radioButton_Click"/>
             </StackPanel>
             <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Column="1" VerticalAlignment="Top" Margin="5,10,5,5">
                 <TextBlock TextWrapping="Wrap" Width="380" Height="auto" MinHeight="155" Margin="5,10" x:Name="showTB">  

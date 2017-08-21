@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.Windows.Controls;
 
 
 namespace StrategyPattern
@@ -9,21 +11,25 @@ namespace StrategyPattern
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AbstractStructureStrategy arrayStrategy = new ArrayStrategy();
-        private AbstractStructureStrategy queueStrategy = new QueueStrategy();
-        private AbstractStructureStrategy stackStrategy = new StackStrategy();
-        private AbstractStructureStrategy hashStrategy = new DictionaryStrategy();
+        Dictionary<string, AbstractStructureStrategy> instances = new Dictionary<string, AbstractStructureStrategy>() {
+            {"arrayRd", new ArrayStrategy() },
+            {"stackRd", new StackStrategy() },
+            {"queueRd", new QueueStrategy() },
+            {"hashRd", new DictionaryStrategy()}
+        };
+        AbstractStructureStrategy strategy;
 
         public MainWindow()
         {
             InitializeComponent();
+            strategy = instances["arrayRd"];
             changeButtonStatus(true);
         }
-       /// <summary>
-       /// Active or disactive the buttons
-       /// </summary>
-       /// <param name="isEmpty">flag indicating whether the structure is empty or not</param>
-        private void changeButtonStatus(bool isEmpty)
+    /// <summary>
+    /// Active or disactive the buttons
+    /// </summary>
+    /// <param name="isEmpty">flag indicating whether the structure is empty or not</param>
+    private void changeButtonStatus(bool isEmpty)
         {
             if (isEmpty)
             {
@@ -40,29 +46,6 @@ namespace StrategyPattern
                 this.showBtn.IsEnabled = true;
             }
         }
-        /// <summary>
-        /// Get the strategy in accordance with the radio selected
-        /// </summary>
-        /// <returns>The corresponding structure</returns>
-        private AbstractStructureStrategy getStrategy()
-        {
-            if ((bool)this.arrayRd.IsChecked)
-            {
-                return this.arrayStrategy;
-            }
-            else if ((bool)this.stackRd.IsChecked)
-            {
-                return this.stackStrategy;
-            }
-            else if ((bool)this.queueRd.IsChecked)
-            {
-                return this.queueStrategy;
-            }
-            else
-            {
-                return this.hashStrategy ;
-            }
-        }
              
         private void ajouterBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -70,7 +53,9 @@ namespace StrategyPattern
                 MessageBox.Show("The name or e-mail is empty!");
                 return;
             }
-            if (getStrategy().Contains(this.nameTB.Text.Trim(),this.emailTB.Text.Trim()))
+   
+
+            if (strategy.Contains(this.nameTB.Text.Trim(),this.emailTB.Text.Trim()))
             {
                 MessageBox.Show("The name or e-mail already exists!");
                 return;
@@ -81,37 +66,34 @@ namespace StrategyPattern
                 return;
             }
 
-            AbstractStructureStrategy strategy = getStrategy();           
+                     
             strategy.Add(this.nameTB.Text.Trim(), this.emailTB.Text.Trim());
             changeButtonStatus(false);
         }
 
-        private void bouton_Checked(object sender, RoutedEventArgs e)
-        {
-            changeButtonStatus(getStrategy().IsEmpty());
-            if (this.showTB != null)
-                this.showTB.Text = "";
-        }
-
         private void searchByNameBtn_Click(object sender, RoutedEventArgs e)
         {
-           this.showTB.Text = getStrategy().SearchByName(this.nameTB.Text.Trim());
+           this.showTB.Text = strategy.SearchByName(this.nameTB.Text.Trim());
         }
 
         private void showBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.showTB.Text = getStrategy().ShowAll();
+            this.showTB.Text = strategy.ShowAll();
         }
 
         private void sortBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.showTB.Text = getStrategy().Sort();
+            this.showTB.Text = strategy.Sort();
         }
 
         private void searchByEmailBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.showTB.Text = getStrategy().SearchByEmail(this.emailTB.Text.Trim());
+            this.showTB.Text = strategy.SearchByEmail(this.emailTB.Text.Trim());
         }
 
+        private void radioButton_Click(object sender, RoutedEventArgs e)
+        {
+            strategy = instances[((RadioButton)sender).Name];
+        }
     }
 }
