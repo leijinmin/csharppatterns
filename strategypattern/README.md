@@ -20,38 +20,26 @@ For this task, I feel it is natural to use the strategy pattern, and the solutio
 # Outline
 1.  The strategy pattern prevents the mass of the code which checks the structrue selected for each function.
 
- According to the above **Screenshot**, I use one single function **getStrategy** to get the concrete structure strategy in corresondence with the radio button selectetd. When the **Show** button is clicked, for instance, one line of code **getStrategy().ShowAll()** in the even handling function **showBtn_Click** can take care of the display of the data. What class and method are called is behind the scene. 
+ According to the above **Screenshot**, I use a dictionary to save the different concrete structure strategies, where the key corresponds to the radio button name selected and the value corresponds to the instance of the related strategy. A click on the any of the structure radio button will trigger the event (see the event handler **radioButton_Click**) which sets the strategy selected. When the **Show** button is clicked, for instance, though we don't know the strategy selected explicitly, it is decided at runtime. 
  
 ```
-        private AbstractStructureStrategy arrayStrategy = new ArrayStrategy();
-        private AbstractStructureStrategy queueStrategy = new QueueStrategy();
-        private AbstractStructureStrategy stackStrategy = new StackStrategy();
-        private AbstractStructureStrategy hashStrategy = new DictionaryStrategy();
+        Dictionary<string, AbstractStructureStrategy> instances = new Dictionary<string, AbstractStructureStrategy>() {
+            {"arrayRd", new ArrayStrategy() },
+            {"stackRd", new StackStrategy() },
+            {"queueRd", new QueueStrategy() },
+            {"hashRd", new DictionaryStrategy()}
+        };
+        AbstractStructureStrategy strategy; 
         
-        private AbstractStructureStrategy getStrategy()
+        private void radioButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((bool)this.arrayRd.IsChecked)
-            {
-                return this.arrayStrategy;
-            }
-            else if ((bool)this.stackRd.IsChecked)
-            {
-                return this.stackStrategy;
-            }
-            else if ((bool)this.queueRd.IsChecked)
-            {
-                return this.queueStrategy;
-            }
-            else
-            {
-                return this.hashStrategy ;
-            }
-        }
+            strategy = instances[((RadioButton)sender).Name];
+        }   
         
         private void showBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.showTB.Text = getStrategy().ShowAll();
-        }        
+            this.showTB.Text = strategy.ShowAll();
+        } 
 ```
 2. 4 structures **ArrayStrategy**, **StackStrategy**, **QueueStrategy** and **DictionaryStrategy** that implement the **AbstractStrategy**.
 3. A static helper class **ExtensionMethods** comprising the extension methods that implment the main logic by functioning over the common data type **NameEmail[]**. 
