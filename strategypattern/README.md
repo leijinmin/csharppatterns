@@ -20,7 +20,7 @@ For this task, I feel it is natural to use the strategy pattern, and the solutio
 # Outline
 1.  The strategy pattern prevents the mass of the code which checks the structrue selected for each function.
 
- According to the above **Screenshot**, I use a dictionary to save the different concrete structure strategies, where the key corresponds to the radio button name selected and the value corresponds to the instance of the related strategy. A click on the any of the structure radio button will trigger the event (see the event handler **radioButton_Click**) which sets the strategy selected. When the **Show** button is clicked, for instance, though we don't know the strategy selected explicitly, it is decided at runtime. 
+ According to the above **Screenshot**, I use a dictionary to save the different concrete structure strategies, where the key corresponds to the radio button name selected and the value corresponds to the instance of the related strategy. A click on any of the structure radio button will trigger the event (see the event handler **radioButton_Click**) which sets the strategy selected according to the radio name. When the **Show** button is clicked, for instance, though we don't know the strategy selected explicitly, it is decided at runtime. 
  
 ```
         Dictionary<string, AbstractStructureStrategy> instances = new Dictionary<string, AbstractStructureStrategy>() {
