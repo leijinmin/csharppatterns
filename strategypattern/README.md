@@ -1,5 +1,5 @@
 # Requirement
-This is a small task that we did in the object-oriented course where we use C#. We are asked to use four different structures (Array, stack, queue and hash table) 
+In this toy project, we are asked to use four different structures (Array, stack, queue and hash table) 
 to save the name and e-mail address pairs which are expressed by the [C# struct type](https://msdn.microsoft.com/en-us/library/aa288471(v=vs.71).aspx). For each of the structure, we are asked to implement the following functions: 
 1. Add the value pairs
 2. Search by name
